@@ -22,12 +22,14 @@ public class AlertDaemon extends Thread {
     @Override
     public void run() {
         //TODO#4 1초에 한 번씩 Alert Daemon message를 출력 합니다.
-        try{
-            this.sleep(1000);
-            System.out.println("Alert Daemon message");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        do {
+            try {
+                this.sleep(1000);
+                System.out.println("Alert Daemon message");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }while(true);
     }
 
 }
